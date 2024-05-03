@@ -4,7 +4,7 @@
 function pegarData () {
         
         //inicializando o objecto Date
-                const data = new Date()
+        const data = new Date()
 
          //pegando dados do tempo
         let hora = data.getHours()
@@ -45,21 +45,26 @@ function pegarData () {
         let diaRes = document.querySelector('.diaSemana')
         let dataRes = document.querySelector('.data')
         let tempoRes = document.querySelector('.tempo')
-
         
-          if (String(hora).length === 1 && String(minuto).length === 1) {
-                tempoRes.textContent = `0${hora} : 0${minuto} : ${segundo}`
-        } else {
-                 tempoRes.textContent = `${hora} : ${minuto} : ${segundo}`
-          }
-        
-
-        if (String(mes).length === 1 && String(dia).length === 1) {
-                dataRes.textContent = `0${dia} / 0${mes} / ${ano}`
-        } else {
-                 dataRes.textContent = `${dia} / ${mes} / ${ano}`
+        //testando o formato
+        if (String(hora).length === 1) {
+                hora = `0${hora}`
+        }
+        if (String(minuto).length === 1) {
+                minuto = `0${minuto}`
+        }
+         if (String(mes).length === 1) {
+                mes = `0${mes}`
+        }
+        if (String(dia).length === 1) {
+                dia = `0${dia}`
+        }
+        if (String(segundo).length === 1) {
+                segundo = `0${segundo}`
         }
 
+        dataRes.textContent  = `${dia} / ${mes} / ${ano}`
+        tempoRes.textContent  = `${hora} : ${minuto} : ${segundo}`
         diaRes.textContent = diaSemana
         
 }
